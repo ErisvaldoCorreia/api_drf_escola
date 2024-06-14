@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from exemplo_inicial.views import alunos
+
 urlpatterns = [
+  
+    # rota padrão inicial para acessar painel admin do django
     path('admin/', admin.site.urls),
+
+    # rotas criada para resposta teste usando modelo view em response
+    path('alunos/', alunos),
 ]
