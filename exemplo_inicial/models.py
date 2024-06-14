@@ -19,7 +19,7 @@ class Curso(models.Model):
 
   codigo = models.CharField(max_length=10)
   descricao = models.CharField(max_length=100)
-  codigo = models.CharField(
+  nivel = models.CharField(
     max_length=1, blank=False, null=False, default='B', choices=NIVEL
   )
 
