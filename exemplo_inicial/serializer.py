@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from exemplo_inicial.models import Aluno, Curso
+from exemplo_inicial.models import Aluno, Curso, Matricula
 
 class AlunoSerializer(serializers.ModelSerializer):
   class Meta:
@@ -16,4 +16,11 @@ class CursoSerializer(serializers.ModelSerializer):
     # caso queira determinar conjuntos de campos especificos, 
     # podemos usar uma lista de campos direcionadas: 
     # fields = ['id', 'nome', 'cpf']
+
+class MatriculaSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Matricula
+    exclude = []
+    # usando o exclude podemos dizer qual campo não gostariamos
+    # de ver serializado. Deixar vazio, traz todos os campos!
 

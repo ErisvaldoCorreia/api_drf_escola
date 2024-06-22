@@ -15,8 +15,8 @@ def alunos(request):
 # --- Aplicando modelo django rest framework ---
 
 from rest_framework import viewsets
-from exemplo_inicial.models import Aluno, Curso
-from exemplo_inicial.serializer import AlunoSerializer, CursoSerializer
+from exemplo_inicial.models import Aluno, Curso, Matricula
+from exemplo_inicial.serializer import AlunoSerializer, CursoSerializer, MatriculaSerializer
 
 class AlunoViewSet(viewsets.ModelViewSet):
   """Exibindo todos os alunos cadastrados"""
@@ -27,4 +27,9 @@ class CursoViewSet(viewsets.ModelViewSet):
   """Exibindo todos os alunos cadastrados"""
   queryset = Curso.objects.all()
   serializer_class = CursoSerializer
+
+class MatriculaViewSet(viewsets.ModelViewSet):
+  """Exibindo todos os alunos cadastrados"""
+  queryset = Matricula.objects.all()
+  serializer_class = MatriculaSerializer
 
