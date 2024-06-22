@@ -24,3 +24,13 @@ class MatriculaSerializer(serializers.ModelSerializer):
     # usando o exclude podemos dizer qual campo não gostariamos
     # de ver serializado. Deixar vazio, traz todos os campos!
 
+class ListaMatriculaPorAlunoSerializer(serializers.ModelSerializer):
+  curso = serializers.ReadOnlyField(source='curso.descricao')
+  periodo = serializers.SerializerMethodField()
+  class Meta:
+    model = Matricula
+    fields = ['curso', 'periodo']
+  def get_periodo(self, obj):
+    return obj.get_periodo_display()
+
+    
