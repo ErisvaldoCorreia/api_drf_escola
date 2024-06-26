@@ -5,7 +5,7 @@ from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from exemplo_inicial.views import alunos, AlunoViewSet, CursoViewSet, MatriculaViewSet, ListaMatriculasAlunos
+from exemplo_inicial.views import alunos, AlunoViewSet, CursoViewSet, MatriculaViewSet, ListaMatriculasAlunos, ListaAlunosMatriculados
 
 
 router = routers.DefaultRouter()
@@ -35,6 +35,7 @@ urlpatterns = [
     # rota base para api e listagens controladas pelo rest framework
     path('api/', include(router.urls)),
     path('api/aluno/<int:pk>/matriculas/', ListaMatriculasAlunos.as_view()),
+    path('api/curso/<int:pk>/matriculas/', ListaAlunosMatriculados.as_view()),
 
     # rotas para documentação swagger
     path('api/doc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
